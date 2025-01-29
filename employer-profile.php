@@ -104,6 +104,38 @@
         </div>
     </div>
 </div>
+<?php ?>
+		<div class="col-sm-4">
+			<h2 class="text-center"><strong>Received Applications </strong></h2>
+			<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Title</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php 
+					$call="SELECT * FROM student_applications WHERE employer='$usname'";
+					$received=mysqli_query($conn,$call);
+
+					while($rowz=mysqli_fetch_assoc($received)){
+
+					 ?>
+					 <tr>
+					 	<td><?php echo $rowz['name']; ?></td>
+					 	<td><?php echo $rowz['email']; ?></td>
+					 	<td><?php echo $rowz['job_title']; ?></td>
+					</tr>
+					<?php } ?>
+					</tbody>
+					</table>
+
+		</div>
+		</div>
+	</div>
+</body>
 
 <?php mysqli_close($conn); ?>
 <script>
